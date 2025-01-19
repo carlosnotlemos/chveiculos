@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css" integrity="sha512-/VYneElp5u4puMaIp/4ibGxlTd2MV3kuUIroR3NSQjS2h9XKQNebRQiyyoQKeiGE9mRdjSCIZf9pb7AVJ8DhCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/style.css">
+    <%= stylesheet_link_tag "home", media: "all", "data-turbo-track": "reload" %>
     <title>Rhyno Analitcs</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
     <nav>
         <div class="nav-logo">
             <a href="#">
-                <img src="./images/logo.png">
+                <%= image_tag "logo.png", alt: "Logo da Rhyno Analytics" %>
             </a>
         </div>
 
@@ -41,11 +41,11 @@
         </div>
 
         <div class="image">
-            <img src="./images/empresa.png">
+            <%= image_tag "empresa.png", alt: "Imagem da Empresa Rhyno Analytics" %>
         </div>
     </header>
 
+    <%#= <%= javascript_include_tag "script", "data-turbo-track": "reload" %> 
 
-    <script src="script.js"></script>
 </body>
 </html>
