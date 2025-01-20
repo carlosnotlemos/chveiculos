@@ -19,7 +19,8 @@ a{
 
 body{
     font-family: 'Poppins', sans-serif;
-    background-color: #562F02;
+    background-color: #4a403d; /* Cor de fundo principal (marrom escuro) */
+    color: #fff1c1; /* Cor clara para o texto */
 }
 
 nav{
@@ -33,7 +34,7 @@ nav{
 }
 
 .nav-logo{
-    max-width: 100px;
+    max-width: 80px;
 }
 
 .nav-links{
@@ -46,7 +47,8 @@ nav{
 .link a{
     position: relative;
     padding-bottom: 0.75rem;
-    color: #fff;
+    color: #fff1c1; /* Cor clara para os links */
+    font-weight: 500;
 }
 
 .link a::after{
@@ -56,7 +58,7 @@ nav{
     width: 0;
     bottom: 0;
     left: 0;
-    background-color: #EC8105;
+    background-color: #ea804c; /* Cor laranja suave para os links */
     transition: all 0.3s ease;
 }
 
@@ -67,15 +69,15 @@ nav{
 .btn{
     padding: 1rem 2rem;
     font-size: 1rem;
-    color: #fff;
-    background-color: #EC8105;
+    color: #fff1c1; /* Cor clara para o texto do botão */
+    background-color: #ea804c; /* Cor laranja suave para os botões */
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .btn:hover{
-    background-color: #BA6504;
+    background-color: #facf7d; /* Cor amarela pastel no hover */
 }
 
 .container{
@@ -86,7 +88,7 @@ nav{
 
 .blur{
     position: absolute;
-    box-shadow: 0 0 1000px 50px #fa8601;
+    box-shadow: 0 0 1000px 50px #facf7d; /* Amarelo pastel vibrante para o blur */
     z-index: -100;
 }
 
@@ -101,26 +103,25 @@ header{
 
 header .content h4{
     margin-bottom: 1rem;
-    color: #ccc;
+    color: #a69a90; /* Cinza claro para o subtítulo */
     font-size: 1rem;
     font-weight: 600;
 }
 
 header .content h1{
     margin-bottom: 1rem;
-    color: #fff;
+    color: #fff1c1; /* Cor clara para o título principal */
     line-height: 4rem;
-    font-size: 3rem;
     font-weight: 700;
 }
 
 header .content h1 span{
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px #fff;
+    color: #ea804c; /* Laranja suave para o destaque no título */
+    font-size: 2.9rem;
 }
 
 header .content p{
-    color: #ccc;
+    color: #fff1c1; /* Cor clara para o texto */
     margin-bottom: 1rem;
 }
 

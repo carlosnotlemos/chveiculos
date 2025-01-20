@@ -1,51 +1,30 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css" integrity="sha512-/VYneElp5u4puMaIp/4ibGxlTd2MV3kuUIroR3NSQjS2h9XKQNebRQiyyoQKeiGE9mRdjSCIZf9pb7AVJ8DhCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <%= stylesheet_link_tag "home", media: "all", "data-turbo-track": "reload" %>
-    <title>Rhyno Analitcs</title>
-</head>
 <body>
-    
-    <nav>
-        <div class="nav-logo">
-            <a href="#">
-                <%= image_tag "logo.png", alt: "Logo da Rhyno Analytics" %>
-            </a>
-        </div>
-
-        <ul class="nav-links">
-            <li class="link"><%= link_to 'Página Inicial', root_path %></li>
-            <li class="link"><%= link_to 'Formação', academics_path %></li>
-            <li class="link"><a href="#">Projetos</a></li>
-            <li class="link"><a href="#">Contato</a></li>
-        </ul>
-
-        <button class="btn">Quero Contratar!</button>
-    </nav>
-
     <header class="container">
         <div class="content">
-            <span class="blur"></span>
-            <span class="blur"></span>
-            <h4>Está precisando de uma ajudinha?</h4>
-            <h1>Nós da <span>Rhyno Analitcs</span> ajudamos você!</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                 Provident ipsum illum accusamus repellat molestias deleniti 
-                 architecto nobis impedit sequi suscipit itaque, cupiditate quos, 
-                 laboriosam mollitia rem beatae sapiente veritatis magnam. 
+            <!--Projeta luz no background-->
+            <% 2.times do %>
+                <span class="blur"></span>
+            <% end %>
+            <h4>Procurando alguém para desbravar o universo da tecnologia?</h4>
+            <h1>Olá, sou o <span>Carlos!</span></h1>
+            <p>Futuro Cientista de Dados e Explorador Full-Stack! 
+            Estou aqui para transformar ideias em soluções e códigos 
+            em resultados concretos! Sou um estudante focado em tecnologia,
+             com o objetivo de dominar o mundo dos dados e explorar as
+             possibilidades do desenvolvimento. Sempre em busca de novos 
+             desafios e aprendizados. E então? Bora codar?
             </p>
             <button class="btn">Vamos lá</button>
         </div>
 
         <div class="image">
+            <!--Alterar imagem para foto minha-->
             <%= image_tag "empresa.png", alt: "Imagem da Empresa Rhyno Analytics" %>
         </div>
     </header>
-
+    <section>
+        <!--iniciar vídeo aqui-->
+    </section>
     <%#= <%= javascript_include_tag "script", "data-turbo-track": "reload" %> 
-
+    
 </body>
-</html>

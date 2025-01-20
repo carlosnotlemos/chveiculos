@@ -1,0 +1,19 @@
+<!--Barra superior que será utilizada em todas as paginas-->
+<nav>
+    <div class="nav-logo">
+         <%= link_to root_path do %>
+            <!--Clique envia para pagina introdução-->
+            <%= image_tag "logo.png", alt: "Ícone da barra de navegação" %>
+        <% end %> 
+    </div>
+    
+    <ul class="nav-links">
+        <!--Clique envia para paginas -->
+        <li class="link"><%= link_to 'Introdução', root_path %></li>
+        <li class="link"><%= link_to 'Formação', academics_path %></li>
+        <li class="link"><%= link_to 'Projetos', projects_path %></li>
+        <li class="link"><%= link_to 'Contatos', contacts_path %></li>
+    </ul>
+
+    <button class="btn">Entrar!</button>
+</nav>
