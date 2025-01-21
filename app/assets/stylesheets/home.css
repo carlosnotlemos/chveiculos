@@ -37,6 +37,17 @@ nav{
     max-width: 80px;
 }
 
+.nav-icon i {
+    font-size: 3rem;
+    color: #ea804c;
+    transition: color 0.3s ease;
+}
+  
+.nav-icon:hover i {
+    border-color: #fff1c1;
+    color: #e29c78
+}
+
 .nav-links{
     list-style: none;
     display: flex;
@@ -71,19 +82,21 @@ nav{
     font-size: 1rem;
     color: #fff1c1; /* Cor clara para o texto do botão */
     background-color: #ea804c; /* Cor laranja suave para os botões */
+    border: 1px solid transparent;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .btn:hover{
-    background-color: #facf7d; /* Cor amarela pastel no hover */
+    background-color: #ea814c93; /* Cor no hover */
+    border-color: #fff1c1;
 }
 
 .container{
     max-width: 1200px;
     margin: auto;
-    padding: 5rem 2rem;
+    padding: 2rem 2rem;
 }
 
 .blur{
@@ -122,14 +135,87 @@ header .content h1 span{
 
 header .content p{
     color: #fff1c1; /* Cor clara para o texto */
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    
 }
 
 header .image{
     position: relative;
 }
 
+header .image::before{
+    content: 'o';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-54%);
+    font-size: 60rem;
+    font-weight: 400;
+    line-height: 21rem;
+    color: #ea804c;
+    opacity: 0.9;
+    z-index: -100;
+}
+
 header .image img{
     max-width: 400px;
     margin: auto;
+}
+
+section .header{
+    margin-bottom: 1rem;
+    color: #fff1c1;
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 600;
+}
+
+.features{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.features .card{
+    background-color: #ea804c;
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.features .card:hover{
+    background-color: #ea814c93;
+    border-color: #fff1c1;
+}
+
+.features .card span{
+    display: inline-block;
+    background-color: #fff1c150;
+    padding: 2px 9px;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    border-radius: 5px;
+    color: #fff1c1;
+}
+
+.features .card h4{
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.features .card p{
+    color: #fff1c1ad;
+    margin-bottom: 1rem;
+}
+
+.features .card a{
+    color: #fff1c1;
+    transition: all 0.3s ease;
+}
+
+.features .card a:hover{
+    color: #ea804c;
 }

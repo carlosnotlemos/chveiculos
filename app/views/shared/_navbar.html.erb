@@ -1,10 +1,9 @@
 <!--Barra superior que será utilizada em todas as paginas-->
 <nav>
     <div class="nav-logo">
-         <%= link_to root_path do %>
-            <!--Clique envia para pagina introdução-->
-            <%= image_tag "logo.png", alt: "Ícone da barra de navegação" %>
-        <% end %> 
+        <%= link_to root_path, class: "nav-icon" do %>
+            <i class="ri-copyright-line"></i>
+        <% end %>
     </div>
     
     <ul class="nav-links">
