@@ -219,3 +219,10 @@ section .header{
 .features .card a:hover{
     color: #ea804c;
 }
+
+footer .header{
+    margin: auto;
+    text-align: center;
+    color: #fff1c1ad;
+    font-size: 0.8rem;
+}

@@ -17,31 +17,39 @@
             </p>
             <%= link_to "Vamos lá", contacts_path, class: "btn" %>
         </div>
-
+        
         <div class="image">
-            <%= image_tag "eu.png", alt: "Apresentação Visual" %>
+            <%= image_tag "eu.png", alt: "Apresentação Visual"%>
         </div>
     </header>
     <section class="container">
-        <h2 class="header"> OUR FEATURES</h2>
+        <h2 class="header"> NESSE PROJETO </h2>
+        <!--importante para o back-end -->
         <div class="features">
-             <%=render 'shared/card', icon: 'ri-arrow-right-line', title: 'Free Tutorials',
-             description: 'My tutorials in my channel "AsmrProg" are free and you don\'t need to pay anything.', 
+             <%=render 'shared/card', icon: 'ri-arrow-right-line', title: 'Ruby',
+             description: 'Utilizado para front e back end. 40% utilizado', 
              link_path: root_path %>
 
-             <%=render 'shared/card', icon: 'ri-bug-line', title: 'Fix Your Bugs',
-             description: 'You have any problem in your codes? Tell me, i will help you fix it.',
+             <%=render 'shared/card', icon: 'ri-bug-line', title: 'Html',
+             description: 'Criação das páginas de forma dinámica. 36%',
               link_path: contacts_path %>
 
-             <%=render 'shared/card', icon: 'ri-history-line', title: 'On Time Videos',
-             description: 'We have video each 4 days, So check channel every 4 days to watch it!', 
+             <%=render 'shared/card', icon: 'ri-history-line', title: 'CSS',
+             description: 'Estilização das páginas junto com Hotwire, 20%', 
              link_path: academics_path %>
 
-             <%=render 'shared/card', icon: 'ri-shake-hands-line', title: 'Cooperation',
-             description: 'You want we worrk together? Write email to us, we will read it.', 
+             <%=render 'shared/card', icon: 'ri-shake-hands-line', title: 'JavaScript',
+             description: 'Cobrir ações que Rails e Hotwire não cobrem. 4%', 
              link_path: projects_path %>
         </div>
     </section>
+    <!--Rodapé do site-->
+    <footer class="container">
+        <% 2.times do %>
+            <span class="blur"></span>
+        <% end %>
+        <h4 class="header">Site criado em 2025© - Ruby & Rails</h4>
+    </footer>
     <%#= javascript_include_tag "script", "data-turbo-track": "reload" %> 
     
 </body>
