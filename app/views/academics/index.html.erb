@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag "academics", media: "all" %>
+<!--Utiliza o arquivo academics para esse erb-->
+<section class="timeline">
+    <h2 class="section-title">Minhas Formações e Cursos</h2>
+    <div class="timeline-container">
+        <!--Block para iterar na array -->
+        <% @courses.each do |course| %>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3><%= course[:title] %> </h3>
+                    <p> <%= course[:platform] %> - <%= course[:date] %> </p>
+                    <!--Forma concisa de usar o if-->
+                    <%= content_tag(:p, course[:extra]) if course[:extra] %> 
+                </div>
+            </div>
+        <% end %>
+    </div>
+</section>

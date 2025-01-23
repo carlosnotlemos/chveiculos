@@ -19,12 +19,13 @@
         </div>
         
         <div class="image">
-            <%= image_tag "eu.png", alt: "Apresentação Visual"%>
+            <%= image_tag "eu.png", alt: "Foto de Carlos - Apresentação Visual"%>
         </div>
     </header>
     <section class="container">
         <h2 class="header"> NESSE PROJETO </h2>
         <!--importante para o back-end -->
+        <!--Minimizar o codigo com controller, para usar no banco de dados(DRY)-->
         <div class="features">
              <%=render 'shared/card', icon: 'ri-arrow-right-line', title: 'Ruby',
              description: 'Utilizado para front e back end. 40% utilizado', 
@@ -45,8 +46,9 @@
     </section>
     <!--Rodapé do site-->
     <footer class="container">
+        <!--Encontrar uma forma de minimizar esse blur (DRY)-->
         <% 2.times do %>
-            <span class="blur"></span>
+            <span class="blur blur-right"></span>
         <% end %>
         <h4 class="header">Site criado em 2025© - Ruby & Rails</h4>
     </footer>
