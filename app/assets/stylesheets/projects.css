@@ -1,0 +1,44 @@
+.cardview {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.cardview-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5rem;
+    color: #fff1c1;
+}
+
+.cardview-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+}
+
+.cardview-item .card-image{
+    width: 320px;
+    height: 192px;
+    object-fit: cover;
+    border: 5px solid transparent;
+    border-color: #fff1c1;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.cardview-item .cardview-content p{
+    text-transform: capitalize;
+    color: #ea804c;
+    margin-left: 30px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.cardview-item .cardview-content h4{
+    text-transform: capitalize;
+    text-indent: 10px;
+    color: #fff1c1;
+    font-weight: 600;
+}

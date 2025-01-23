@@ -107,8 +107,9 @@ nav{
 
 .blur-right {
     /*Para o footer ficar do lado direito*/
-    right: 0;
+   right: 0;
 }
+
 header{
     position: relative;
     padding-top: 2rem;
