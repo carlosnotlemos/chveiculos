@@ -28,6 +28,12 @@
     margin-bottom: 0.5rem;
 }
 
+.cardview-item .card-image:hover{
+    transition: all 0.3s ease;
+    border-color: #ea804c;
+    transform: scale(1.1);
+}
+
 .cardview-item .cardview-content p{
     text-transform: capitalize;
     color: #ea804c;

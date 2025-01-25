@@ -1,0 +1,46 @@
+.socialsection{
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+}
+
+.social-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5rem;
+    color: #fff1c1;
+}
+
+.social-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.social-item {
+    background: linear-gradient(180deg, #fff1c1, #ea804c);
+    box-shadow: -4px 4px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    height: 13rem;
+    transition: all 0.3s ease;
+}
+
+.social-item:hover{
+    transform: scale(1.1);
+}
+
+.social-content .ico{
+    text-align: center;
+    width: auto;
+    height: 150px;
+    font-size: 7rem;
+    color: #4a403d;
+}
+
+.social-content h2{
+    text-align: center;
+    color: #4a403d;
+    font-weight: 200;
+    font-size: 1.5rem;
+}
