@@ -1,10 +1,8 @@
 <!--Partial utilizada para minimizar codigo-->
 <div class="card">
-    <span>
-        <i class="<%= icon %>"></i>
-    </span>
-    <h4><%= title %></h4>
-    <p><%= description %></p>
+    <span><i class="<%= card[:cardicon] %>"></i></span>
+    <h4><%= card[:cardtitle] %></h4>
+    <p><%= card[:carddesc] %></p>
     <%= link_to "https://github.com/carlosnotlemos/chveiculos", target: :blank do %>
         Código <i class="ri-arrow-right-line"></i>
     <% end %>

@@ -1,29 +1,13 @@
 <section class="socialsection">
     <h2 class="social-title">Mande Uma Mensagem!</h2>
     <div class="social-container">
-        <%= link_to "https://www.instagram.com/carlim_11/", target: :blank do %>
-            <div class="social-item">
+        <% @socialsnet.each do |socialnet| %>  
+            <%= link_to socialnet[:sociallink], target: :blank, class: "social-item", title: "Perfil #{socialnet[:title]}" do %>
                 <div class="social-content">
-                 <p class="ico"><i class="ri-instagram-line"></i></p>
-                 <h2 class="social-content-title">Instagram</h2>
+                    <p class="ico"><i class="<%= socialnet[:socialclass] %>"></i></p>
+                    <h2 class="social-content-title"><%= socialnet[:title] %> </h2>
                 </div>
-            </div>
-        <% end %>
-        <%= link_to "https://github.com/carlosnotlemos", target: :blank do %>
-            <div class="social-item">
-                <div class="social-content">
-                    <p class="ico"><i class="ri-github-line"></i></p>
-                    <h2 class="social-content-title">GitHub</h2>
-                </div>
-            </div>
-        <% end %>
-        <%= link_to "https://www.linkedin.com/in/carlos-henrique-b33b78191/", target: :blank do %>
-            <div class="social-item">
-                <div class="social-content">
-                    <p class="ico"><i class="ri-linkedin-box-line"></i></p>
-                    <h2 class="social-content-title">Linkedin</h2>
-                </div>
-            </div>
+            <% end %>
         <% end %>
     </div>
 </section>

@@ -2,9 +2,7 @@
     <header class="container">
         <div class="content">
             <!--Projeta luz no background-->
-            <% 2.times do %>
-                <span class="blur"></span>
-            <% end %>
+            <%= safe_join(Array.new(2) { content_tag(:span, "", class: "blur") }) %>
             <!--Introdução sobre mim-->
             <h4>Procurando alguém para desbravar o universo da tecnologia?</h4>
             <h1>Olá, sou o <span>Carlos!</span></h1>
@@ -17,37 +15,21 @@
             </p>
             <%= link_to "Vamos lá", contacts_path, class: "btn" %>
         </div>
-        
-        <div class="image">
-            <%= image_tag "eu.png", alt: "Foto de Carlos - Apresentação Visual"%>
-        </div>
+
+        <%= content_tag(:div, image_tag("eu.png", alt: "Foto de Carlos - Apresentação Visual"),
+         class: "image") %>
+         
     </header>
     <section class="container">
         <h2 class="header"> NESSE PROJETO </h2>
         <!--importante para o back-end -->
-        <!--Minimizar o codigo com controller, para usar no banco de dados(DRY)-->
-        <div class="features">
-             <%=render 'shared/card', icon: 'devicon-ruby-plain', title: 'Ruby',
-             description: 'Utilizado para front e back end. 41%'%>
-
-             <%=render 'shared/card', icon: 'devicon-html5-plain', title: 'Html',
-             description: 'Criação das páginas de forma dinámica. 45%'%>
-
-             <%=render 'shared/card', icon: 'devicon-css3-plain', title: 'CSS',
-             description: 'Estilização das páginas junto com Hotwire. 12%'%>
-
-             <%=render 'shared/card', icon: 'devicon-docker-plain', title: 'Docker',
-             description: 'Virtualização do sistema para minimizar erros. 2%'%>
-        </div>
+        <section class="features">
+            <%= render partial: 'shared/card', collection: @cards, as: :card %>
+        </section>
     </section>
     <!--Rodapé do site-->
     <footer class="container">
-        <!--Encontrar uma forma de minimizar esse blur (DRY)-->
-        <% 2.times do %>
-            <span class="blur blur-right"></span>
-        <% end %>
+        <%= safe_join(Array.new(2) { content_tag(:span, "", class: "blur blur-right") }) %>
         <h4 class="header">Site criado em 2025© - Ruby & Rails</h4>
-    </footer>
-    <%#= javascript_include_tag "script", "data-turbo-track": "reload" %> 
-    
+    </footer> 
 </body>

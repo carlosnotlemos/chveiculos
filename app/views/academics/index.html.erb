@@ -8,7 +8,6 @@
                 <div class="timeline-content">
                     <h3><%= course[:title] %> </h3>
                     <p> <%= course[:platform] %> - <%= course[:date] %> </p>
-                    <!--Forma concisa de usar o if-->
                     <%= content_tag(:p, course[:extra]) if course[:extra] %> 
                 </div>
             </div>
