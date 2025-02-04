@@ -13,8 +13,8 @@
         <li class="link"><%= link_to 'Contatos', contacts_path %></li>
     </ul>
   <% if user_signed_in? %>
-    <%= link_to 'Sair', destroy_user_session_path, data: { turbo_method: :delete } %>
+    <%= link_to 'Sair', destroy_user_session_path, data: { turbo_method: :delete } , class: "btn" %>
   <% else %>
-    <%= link_to 'Logar', new_user_session_path %>
+    <%= link_to 'Logar', new_user_session_path, class: "btn" %>
   <% end %>
 </nav>

@@ -1,5 +1,62 @@
-<h1>Painel de Controle - Admin</h1>
+<%#<div data-controller="hide" class="layout">
+  <!-- Botão para abrir/fechar sidebar -->
+  <button data-action="click->hide#toggleSidebar" class="toggle-btn">
+    ☰
+  </button>
 
-<p>Bem-vindo ao painel de controle, <%= current_user.email %>!</p>
+  <!-- Barra Lateral -->
+  <div data-hide-target="sidebar" class="sidebar">
+    <ul>
+      <li><a href="#">Projetos</a></li>
+      <li><a href="#">Formações</a></li>
+      <li>
+        <button data-action="click->hide#showForm">Adicionar</button>
+      </li>
+    </ul>
+  </div>
 
-<!-- Aqui você pode adicionar mais informações ou links para o painel -->
+  <!-- Painel de Conteúdo -->
+  <div data-hide-target="content" class="content">
+    <h1>Bem-vindo</h1>
+    <p>Selecione uma opção na barra lateral.</p>
+  </div>
+
+  <!-- Formulário (inicialmente oculto) -->
+  <div data-hide-target="form" class="form-overlay hidden">
+    <div class="form-container">
+      <h2>Adicionar Novo Item</h2>
+      <form>
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Salvar</button>
+        <button type="button" data-action="click->hide#hideForm">Fechar</button>
+      </form>
+    </div>
+  </div>
+</div>%>
+
+<section data-controller="hide", class="sectioncontainer">
+    
+    <div data-hide-target="sidebarContainer" class="sidebar-container">
+        <h2 class="sidebar-title">Painel de controle</h2>
+        <div class="sidebar-content">
+            <ul>
+                <%= content_tag(:li, link_to("Projetos", admin_root_path, class: "panelformtxt"))%>
+                <%= content_tag(:li, link_to("Formações", admin_root_path, class: "panelformtxt"))%>
+                <%= button_tag "testesteste"%>
+                <%= content_tag(:p , "#{current_user.email}")%>
+            </ul>
+        </div>
+    </div>
+    <div class="sidebarbtn">
+        <button data-action="click->hide#toggleSidebar" class="sidebarhide-btn">
+          ☰
+        </button>
+    </div>
+
+    <div class="form-container">
+        <h2 class="container-title">Bem vindo ao painel de controle!</h2>
+
+    </div>
+
+</section>
