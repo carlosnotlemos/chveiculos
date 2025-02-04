@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :dashboard, only: %i[ index ]
+    root to: "dashboard#index"
+    resources :dashboard, only: %i[ index ], path: ''
   end
 end
