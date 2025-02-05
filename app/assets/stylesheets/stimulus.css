@@ -21,15 +21,8 @@
 .sidebarlist li a{
   color: #fff1c1;
 }
-.sidebar-button {
-  margin-bottom: 1rem;
-  background-color: blue;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
 .sidebar-user {
+  margin-top: 1rem;
   font-size: 14px;
   color: green;
 }
@@ -38,14 +31,38 @@
   font-size: 1.5rem;
   height: 100vh;
 }
+.container-title{
+  margin: 0 50vh;
+}
 .form-container{
   margin: 0 auto;
 }
-
-
-
-
 .hidden {
   display: none;
+}
+/*Aréa de estilização da tabela*/
+.table {
+  width: 100%;
+  border-collapse: collapse; /* Para evitar bordas duplicadas */
+  margin-top: 20px; /* Espaço no topo */
+  margin-bottom: 20px; /* Espaço no fundo */
+}
+
+.table th, .table td {
+  padding: 15px; /* Espaçamento interno nas células */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.table th {
+  background-color: #0e0808; /* Cor de fundo para o cabeçalho */
+  border-bottom: 2px solid #b92626; /* Linha abaixo do cabeçalho */
+}
+
+.table tr:nth-child(even) {
+  background-color: #410505; /* Cor alternada nas linhas */
+}
+
+.table td {
+  border-bottom: 1px solid #ddd; /* Linha separadora nas células */
 }
 
