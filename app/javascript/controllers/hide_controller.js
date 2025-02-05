@@ -1,10 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["sidebarContainer", "content", "form"]
+  static targets = ["sidebarContainer", "content", "form",
+    "formProjetos", "formFormacoes"]
 
   connect() {
     console.log("🚀 Hide Controller carregado!")
+    this.showProjetos()
   }
   
   toggleSidebar() {  
@@ -18,8 +20,21 @@ export default class extends Controller {
     this.formTarget.classList.remove("hidden")
   }
 
-  hideForm() {
-    console.log("❌ Ocultando formulário!")
-    this.formTarget.classList.add("hidden")
+  // Função para mostrar o formulário de Projetos
+  showProjetos() {
+    this.hideAllForms(); // Esconde todos os formulários
+    this.formProjetosTarget.style.display = "block"; // Exibe o formulário de Projetos
+  }
+
+  // Função para mostrar o formulário de Formações
+  showFormacoes() {
+    this.hideAllForms(); // Esconde todos os formulários
+    this.formFormacoesTarget.style.display = "block"; // Exibe o formulário de Formações
+  }
+
+  // Função para esconder todos os formulários
+  hideAllForms() {
+    this.formProjetosTarget.style.display = "none";
+    this.formFormacoesTarget.style.display = "none";
   }
 }
