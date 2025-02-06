@@ -22,6 +22,11 @@
     <div id="form-projetos" class="form-section" data-hide-target="formProjetos" style="display: none;">
       <h3>Adicionar Novo Projeto</h3>
       <%= form_with model: @projeto, url: admin_dashboard_index_path, method: :post, local: true do |form| %>
+
+        <!--Partial criada para chamar mensagens de erro no formulário-->
+        <%= render "shared/form_errors_messages", object: @projeto %>
+
+        <!--Formulario para inserir valores-->
         <div class="form-group">
           <%= form.label :language, "Linguagem utilizada: " %>
           <%= form.text_field :language, class: "form-control" %>

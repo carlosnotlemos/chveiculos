@@ -1,0 +1,20 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        project:
+          attributes:
+            language:
+              blank: "Linguagem não pode ficar em branco"
+            description:
+              blank: "Descrição não pode ficar em branco"
+            image_url:
+              blank: "Link não pode ficar em branco"
+            date_p:
+              blank: "Data não pode ficar em branco"
+      messages:
+        inclusion: "não está incluído na lista"
+        invalid: "é inválido"
+        blank: "não pode ficar em branco"
+        too_short: "é muito curto (mínimo %{count} caracteres)"
+        too_long: "é muito longo (máximo %{count} caracteres)"
