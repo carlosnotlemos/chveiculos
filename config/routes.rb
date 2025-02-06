@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "dashboard#index"
-    resources :dashboard, only: %i[ index ], path: ''
+    resources :dashboard, only: %i[ index new create], path: ''
   end
 end

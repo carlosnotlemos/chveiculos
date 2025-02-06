@@ -66,3 +66,49 @@
   border-bottom: 1px solid #ddd; /* Linha separadora nas células */
 }
 
+
+/* Formulário de Formações 
+<div id="form-formacoes" class="form-section" data-hide-target="formFormacoes" style="display: none;">
+  <h3>Adicionar Nova Formação</h3>
+  <%= form_with url: "#", method: :post, data: { turbo: false } do |form| %>
+    <div class="form-group">
+      <%= form.label :title, "Título da Formação" %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :description, "Descrição" %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+    <%= form.submit "Adicionar", class: "btn" %>
+  <% end %>
+</div>
+
+<div id="TabelaFormacoes" data-hide-target="tabelaf">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Formação</th>
+        <th>Descrição</th>
+        <th>Data</th>
+        <th>Concluido</th>
+        <th>Alterar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @formacoes.each do |formacao| %>
+        <tr>
+          <td><%= formacao[:id] %></td>
+          <td><%= formacao[:title] %></td>
+          <td><%= formacao[:description] %></td>
+          <td><%= formacao[:due_date]%></td>
+          <td> <%= formacao[:active]%> </td>
+          <td>
+            <%="Editar"%>
+            <%="Excluir"%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>*/

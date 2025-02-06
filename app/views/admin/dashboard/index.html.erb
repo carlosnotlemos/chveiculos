@@ -1,4 +1,4 @@
-<section data-controller="hide" class="sectioncontainer">
+<section data-controller="hide" class="sectioncontainer" data-turbo-permanent>
   <div data-hide-target="sidebarContainer" class="sidebar-container">
     <h2 class="sidebar-title">Painel de controle</h2>
     <div class="sidebar-content">
@@ -21,90 +21,58 @@
     <!-- Formulário de Projetos -->
     <div id="form-projetos" class="form-section" data-hide-target="formProjetos" style="display: none;">
       <h3>Adicionar Novo Projeto</h3>
-      <%= form_with url: "#", method: :post, data: { turbo: false } do |form| %>
+      <%= form_with model: @projeto, url: admin_dashboard_index_path, method: :post, local: true do |form| %>
         <div class="form-group">
-          <%= form.label :name, "Nome do Projeto" %>
-          <%= form.text_field :name, class: "form-control" %>
+          <%= form.label :language, "Linguagem utilizada: " %>
+          <%= form.text_field :language, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= form.label :description, "Descrição" %>
+          <%= form.label :description, "Descrição: " %>
           <%= form.text_area :description, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :image_url, "Link: " %>
+          <%= form.text_field :image_url, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :date_p, "Data: " %>
+          <%= form.datetime_field :date_p, class: "form-control" %>
         </div>
         <%= form.submit "Adicionar", class: "btn" %>
       <% end %>
-      <div data-controller="tabela">
-        <button data-action="click->hide#toggleTabela" class="btn">Mostrar/Ocultar Tabela</button>
-      </div>
     </div>
     
-    <div id="TabelaProjetos" data-hide-target="tabela" class="hidden">
+    <div id="TabelaProjetos" data-hide-target="tabela">
       <table class="table">
         <thead>
           <tr>
             <th>ID</th>
-            <th>Nome do Projeto</th>
+            <th>Linguagem</th>
             <th>Descrição</th>
-            <th>Ações</th>
+            <th>Link</th>
+            <th>Data</th>
+            <th>Alterar</th>
           </tr>
         </thead>
         <tbody>
-          <% @projetos.each do |projeto| %>
+          <% if @projetos.present? %>
+            <% @projetos.each do |projeto| %>
+              <tr>
+                <td><%= projeto[:id] %></td>
+                <td><%= projeto[:language] %></td>
+                <td><%= projeto[:description] %></td>
+                <td><%= projeto[:image_url]%></td>
+                <td><%= projeto[:date_p]%></td>
+                <td>
+                  <%= content_tag(:li, "Editar")%>
+                  <%=content_tag(:li, "Excluir")%>
+                </td>
+              </tr>
+            <% end %>
+          <% else %>
             <tr>
-              <td><%= projeto[:id] %></td>
-              <td><%= projeto[:name] %></td>
-              <td><%= projeto[:description] %></td>
               <td>
-                <%#= link_to "Editar", edit_projeto_path(projeto), class: "btn btn-warning" %>
-                <%="Editar"%>
-                <%="Excluir"%>
-                <%#= link_to "Excluir", projeto_path(projeto), method: :delete, class: "btn btn-danger", data: { confirm: "Tem certeza?" } %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Formulário de Formações -->
-    <div id="form-formacoes" class="form-section" data-hide-target="formFormacoes" style="display: none;">
-      <h3>Adicionar Nova Formação</h3>
-      <%= form_with url: "#", method: :post, data: { turbo: false } do |form| %>
-        <div class="form-group">
-          <%= form.label :title, "Título da Formação" %>
-          <%= form.text_field :title, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.label :description, "Descrição" %>
-          <%= form.text_area :description, class: "form-control" %>
-        </div>
-        <%= form.submit "Adicionar", class: "btn" %>
-      <% end %>
-      <div data-controller="tabelaf">
-        <button data-action="click->hide#toggleTabelaf" class="btn">Mostrar/Ocultar Tabela</button>
-      </div>
-    </div>
-    
-    <div id="TabelaFormacoes" data-hide-target="tabelaf" class="hidden">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome da Formação</th>
-            <th>Descrição</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @formacoes.each do |formacao| %>
-            <tr>
-              <td><%= formacao[:id] %></td>
-              <td><%= formacao[:name] %></td>
-              <td><%= formacao[:description] %></td>
-              <td>
-                <%#= link_to "Editar", edit_projeto_path(projeto), class: "btn btn-warning" %>
-                <%="Editar"%>
-                <%="Excluir"%>
-                <%#= link_to "Excluir", projeto_path(projeto), method: :delete, class: "btn btn-danger", data: { confirm: "Tem certeza?" } %>
+                Erro no código
               </td>
             </tr>
           <% end %>

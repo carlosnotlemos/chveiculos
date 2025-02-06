@@ -1,14 +1,23 @@
 class Admin::DashboardController < ApplicationController
   before_action :authenticate_user!
-  def index
-    @projetos = [ { id: 1, name: "nome", description: "testsetset" },
-                { id: 12, name: "nome", description: "testsetsetsetsetsetssetse" },
-                { id: 13, name: "nome", description: "testsetsetsetsetsetsetseetsetse" }
-  ]
 
-    @formacoes = [ { id: 2, name: "formaco", description: "tsetsetsetsetset" },
-                  { id: 25, name: "formaco", description: "tsetsetsetsetset" },
-                  { id: 61, name: "formaco", description: "tsetsetsetsetset" }
-    ]
+  def index
+    @projeto = Project.new  # Lista todos os projetos (padrão RESTful para index)
+    @projetos = Project.all
+  end
+
+  def create
+    @projeto = Project.new(projeto_params)
+    if @projeto.save
+      redirect_to admin_dashboard_index_path, notice: "Projeto criado com sucesso!"
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def projeto_params
+    params.require(:project).permit(:language, :description, :image_url, :date_p)
   end
 end
