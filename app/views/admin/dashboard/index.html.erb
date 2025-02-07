@@ -6,7 +6,7 @@
         <%= content_tag(:li, link_to("Projetos", "#", data: { action: "click->hide#show", hide_tab_param: "projetos"})) %>
         <%= content_tag(:li, link_to("Formações", "#", data: { action: "click->hide#show", hide_tab_param: "formacoes"}))%>
       </ul>
-      <%= link_to "Disconectar!", destroy_user_session_path, data: { turbo_method: :delete } ,class: "btn btn-primary" %>
+      <%= link_to "Desconectar!", destroy_user_session_path, data: { turbo_method: :delete } ,class: "btn btn-primary" %>
       <p class="sidebar-user">User: <%= current_user.email %></p>
     </div>
   </div>
@@ -20,31 +20,11 @@
     <h2 class="container-title">Bem vindo ao painel de controle!</h2>
     <!-- Formulário de Projetos -->
     <div id="form-projetos" class="form-section" data-hide-target="formProjetos" style="display: none;">
-      <h3>Adicionar Novo Projeto</h3>
-      <%= form_with model: @projeto, url: admin_dashboard_index_path, method: :post, local: true do |form| %>
-
-        <!--Partial criada para chamar mensagens de erro no formulário-->
-        <%= render "shared/form_errors_messages", object: @projeto %>
-
-        <!--Formulario para inserir valores-->
-        <div class="form-group">
-          <%= form.label :language, "Linguagem utilizada: " %>
-          <%= form.text_field :language, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.label :description, "Descrição: " %>
-          <%= form.text_area :description, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.label :image_url, "Link: " %>
-          <%= form.text_field :image_url, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.label :date_p, "Data: " %>
-          <%= form.datetime_field :date_p, class: "form-control" %>
-        </div>
-        <%= form.submit "Adicionar", class: "btn" %>
-      <% end %>
+      <h3><%= @projeto.persisted? ? "Editar Projeto" : "Adicionar Novo Projeto" %></h3>
+      <!--Partial criada para chamar mensagens de erro no formulário-->
+      <%= render "shared/form_errors_messages", object: @projeto %>
+      <!--Formulario para inserir valores-->
+      <%= render 'shared/form' %>
     </div>
     
     <div id="TabelaProjetos" data-hide-target="tabela">
@@ -69,15 +49,17 @@
                 <td><%= projeto[:image_url].truncate(20) %></td>
                 <td><%= I18n.l(projeto[:date_p], format: :short) %></td>
                 <td>
-                  <%= content_tag(:li, "Editar")%>
-                  <%=content_tag(:li, "Excluir")%>
+                  <%= link_to "Editar", admin_dashboard_index_path(project_id: projeto.id), class: "btn btn-edit-data" %>
+                  <%#= link_to "Excluir", admin_dashboard_path(projeto),
+                   data: {turbo_method: :delete, confirm: "Tem certeza que deseja excluir?" }, class: "btn btn-danger", 
+                   %>
                 </td>
               </tr>
             <% end %>
           <% else %>
             <tr>
               <td>
-                Erro ao buscar dados ou dados vazio
+                <%= "Erro ao buscar dados ou Banco de dados vazio" if @projetos.blank? %> 
               </td>
             </tr>
           <% end %>
