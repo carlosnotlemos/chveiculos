@@ -1,5 +1,6 @@
 <% if @projeto.errors.any? %>
-  <div class="alert alert-danger">
+  <% %>
+  <div class="alert">
     <h4>Erros encontrados:</h4>
     <ul>
       <% @projeto.errors.messages.each do |_, alerts| %>

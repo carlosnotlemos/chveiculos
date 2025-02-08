@@ -15,19 +15,12 @@ class Admin::DashboardController < ApplicationController
     end
   end
 
-  def edit
-    @projeto = Project.find(params[:id])
-    respond_to do |format|
-      format.js  # Vai buscar o arquivo edit.js.erb
-    end
-  end
-
   def update
     @projeto = Project.find(params[:id])
     if @projeto.update(projeto_params)
       redirect_to admin_dashboard_index_path, notice: "Projeto atualizado com sucesso!"
     else
-      render :edit, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 

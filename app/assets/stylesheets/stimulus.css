@@ -37,9 +37,52 @@
 .form-container{
   margin: 0 auto;
 }
+.form-section{
+  background: #222222;
+  border: 10px solid #000;
+  border-radius: 20px;
+  margin: 1rem;
+  padding: 1rem;
+  width: 50%;
+}
+.form-section h3{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.form-unic{
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas */
+  gap: 1rem; /* Espaço entre os campos */
+  align-items: center;
+}
+.form-group{
+  margin: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.form-label {
+  width: 150px; /* Define um tamanho fixo para as labels */
+  text-align: right; /* Alinha o texto da label à direita */
+}
+
+.form-control {
+  flex: 1; /* Faz com que o campo de input ocupe o restante do espaço */
+  resize: none;
+  font-size: 15px;
+}
+.error-container{
+  background: #222222;
+  border: 10px solid #000;
+  border-radius: 20px;
+  margin: 1rem;
+  padding: 1rem 2rem;
+}
+
 .hidden {
   display: none;
 }
+
 /*Aréa de estilização da tabela*/
 .table {
   width: 100%;
@@ -64,6 +107,11 @@
 
 .table td {
   border-bottom: 1px solid #ddd; /* Linha separadora nas células */
+}
+/* Botões do painel do administrador */
+.btn-form{
+  text-align: center;
+  width: 120px;
 }
 
 .btn-edit-data{
