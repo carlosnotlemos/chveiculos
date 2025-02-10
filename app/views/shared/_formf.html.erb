@@ -1,0 +1,74 @@
+<!-- app/views/shared/_form.html.erb -->
+<div id="form-formacoes" class="form-section" data-hide-target="formFormacoes" style="display: none;">
+  
+  <h3><%= @formacao.persisted? ? "Editar Formação" : "Adicionar Nova Formação" %></h3>
+    
+    <%= form_with model: @formacao, url: @formacao.persisted? ? admin_dashboard_path(@formacao) : admin_dashboard_index_path, 
+        method: @formacao.persisted? ? :patch : :post, local: true do |form| %>
+    
+    <%= form.hidden_field :formF, value: "formacao" %>
+    <div class="form-unic">
+        <div class="form-group">
+          <%= form.label :title, "Formação: " %>
+          <%= form.text_field :title, class: "form-control" %>
+
+        </div>
+        <div class="form-group">
+          <%= form.label :description, "Descrição: " %>
+          <%= form.text_area :description, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :due_date, "Data: " %>
+          <%= form.datetime_field :due_date, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :active, "Concluído:  " %>
+          <%= form.check_box :active, class: "form-control" %>
+        </div>
+
+        <%= form.submit @formacao.persisted? ? "Atualziar" : "Adicionar", class: "btn btn-form" %>
+
+        <%= link_to "Teste", admin_dashboard_index_path , class:"btn btn-form"%>
+    </div>
+  <% end %>
+</div>
+
+<div id="TabelaFormacoes" data-hide-target="tabelaf">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Formação</th>
+        <th>Descrição</th>
+        <th>Data</th>
+        <th>Concluido</th>
+        <th>Alterar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @formacoes.present? %>
+        <% @formacoes.each do |formacao| %>
+          <tr academic_<%= formacao.id %>>
+            <td><%= formacao[:id] %></td>
+            <td><%= formacao[:title].truncate(25) %></td>
+            <td><%= formacao[:description].truncate(30) %></td>
+            <td><%= formacao[:due_date]%></td>
+            <td> <%= formacao[:active]%> </td>
+            <td>
+              <%= link_to "Edtiar", admin_dashboard_index_path(academic_id: formacao.id), class: "btn btn-edit-data"%>
+              <%= link_to "Excluir", admin_dashboard_path(formacao),
+              data: {turbo_method: :delete,  turbo_confirm: "Tem certeza que deseja excluir #{formacao.title}"},
+              class:"btn btn-edit-data" %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td>
+            <%= "Erro ao buscar dados ou Banco de dados vazio" if @formacoes.blank? %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

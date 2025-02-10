@@ -19,11 +19,11 @@ export default class extends Controller {
     //controle para identar abas
     const tab = typeof event === "string" ? event : event.params.tab;
     this.formProjetosTarget.style.display = tab === "projetos" ? "block" : "none";
-    //this.formFormacoesTarget.style.display = tab === "formacoes" ? "block" : "none";
+    this.formFormacoesTarget.style.display = tab === "formacoes" ? "block" : "none";
     localStorage.setItem("activeTab", tab);
     //controle para bloquear tabela
     this.tabelaTarget.style.display = tab === "projetos" ? "block" : "none";
-    //this.tabelafTarget.style.display = tab === "formacoes" ? "block" : "none";
+    this.tabelafTarget.style.display = tab === "formacoes" ? "block" : "none";
 
   }
 }

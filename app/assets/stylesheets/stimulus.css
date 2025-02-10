@@ -187,6 +187,13 @@
         <%= form.submit @projeto.persisted? ? "Salvar Alterações" : "Adicionar", class: "btn" %>
       <% end %>
       
-      
+       <!--Partial criada para chamar mensagens de erro no formulário-->
+  <div class="error-container">
+    <% unless @projeto.errors.any? %>
+      <h4>Notificações do sistema!</h4>
+    <% end %>
+    <%= render "shared/form_errors_messages"%>
+  </div>
+</div>
 
 */

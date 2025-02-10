@@ -1,24 +1,75 @@
 <!-- app/views/shared/_form.html.erb -->
-<%= form_with model: @projeto, url: @projeto.persisted? ? admin_dashboard_path(@projeto) : admin_dashboard_index_path, 
-            method: @projeto.persisted? ? :patch : :post, local: true do |form| %>
-  <div class="form-unic">
-    <div class="form-group">
-      <%= form.label :language, "Linguagem utilizada: " %>
-      <%= form.text_field :language, class: "form-control" %>
+<div id="form-projetos" class="form-section" data-hide-target="formProjetos" style="display: none;">
+  <h3><%= @projeto.persisted? ? "Editar Projeto" : "Adicionar Novo Projeto" %></h3>
+  <%= form_with model: @projeto, url: @projeto.persisted? ? admin_dashboard_path(@projeto) : admin_dashboard_index_path, 
+              method: @projeto.persisted? ? :patch : :post, local: true do |form| %>
+    <%= form.hidden_field :formP, value: "projeto" %>
+    <div class="form-unic">
+      <div class="form-group">
+        <%= form.label :language, "Linguagem utilizada: " %>
+        <%= form.text_field :language, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :description, "Descrição: " %>
+        <%= form.text_area :description, maxlength: 85, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :image_url, "Link: " %>
+        <%= form.text_field :image_url, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :date_p, "Data: " %>
+        <%= form.datetime_field :date_p, class: "form-control" %>
+      </div>
+      <%= form.submit @projeto.persisted? ? "Atualizar" : "Adicionar", class: "btn btn-form" %>
+      <%= link_to @projeto.errors.any? ? "Voltar" : "Limpar" , admin_dashboard_index_path, class: "btn btn-form" %>
     </div>
-    <div class="form-group">
-      <%= form.label :description, "Descrição: " %>
-      <%= form.text_area :description, maxlength: 85, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :image_url, "Link: " %>
-      <%= form.text_field :image_url, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :date_p, "Data: " %>
-      <%= form.datetime_field :date_p, class: "form-control" %>
-    </div>
-    <%= form.submit @projeto.persisted? ? "Atualizar" : "Adicionar", class: "btn btn-form" %>
-    <%= link_to @projeto.errors.any? ? "Voltar" : "Limpar" , admin_dashboard_index_path, class: "btn btn-form" %>
+  <% end %>
+  
+  <!--Partial criada para chamar mensagens de erro no formulário-->
+  <div class="error-container">
+    <% unless @projeto.errors.any? %>
+      <h4>Notificações do sistema!</h4>
+    <% end %>
+    <%= render "shared/form_errors_messages"%>
   </div>
-<% end %>
+</div>
+
+<div id="TabelaProjetos" data-hide-target="tabela">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Linguagem</th>
+            <th>Descrição</th>
+            <th>Link</th>
+            <th>Data</th>
+            <th>Alterar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @projetos.present? %>
+            <% @projetos.each do |projeto| %>
+              <tr project_<%= projeto.id%>>
+                <td><%= projeto[:id] %></td>
+                <td><%= projeto[:language].truncate(25) %></td>
+                <td><%= projeto[:description].truncate(30) %></td>
+                <td><%= projeto[:image_url].truncate(20) %></td>
+                <td><%= I18n.l(projeto[:date_p], format: :short) %></td>
+                <td>
+                  <%= link_to "Editar", admin_dashboard_index_path(project_id: projeto.id), class: "btn btn-edit-data" %>
+                  <%= link_to "Excluir", admin_dashboard_path(projeto.id), 
+                  data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"}, class: "btn btn-edit-data"%>
+                </td>
+              </tr>
+            <% end %>
+          <% else %>
+            <tr>
+              <td>
+                <%= "Erro ao buscar dados ou Banco de dados vazio" if @projetos.blank? %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>

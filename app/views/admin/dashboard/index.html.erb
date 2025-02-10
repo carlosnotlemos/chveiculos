@@ -3,8 +3,8 @@
     <h2 class="sidebar-title">Painel de controle</h2>
     <div class="sidebar-content">
       <ul class="sidebarlist">
-        <%= content_tag(:li, link_to("Projetos", "#", data: { action: "click->hide#show", hide_tab_param: "projetos"})) %>
-        <%= content_tag(:li, link_to("Formações", "#", data: { action: "click->hide#show", hide_tab_param: "formacoes"}))%>
+        <%= content_tag(:li, link_to("Projetos", admin_dashboard_index_path, data: { action: "click->hide#show", hide_tab_param: "projetos"})) %>
+        <%= content_tag(:li, link_to("Formações", admin_dashboard_index_path, data: { action: "click->hide#show", hide_tab_param: "formacoes"}))%>
       </ul>
       <%= link_to "Desconectar!", destroy_user_session_path, data: { turbo_method: :delete } ,class: "btn btn-primary" %>
       <p class="sidebar-user">User: <%= current_user.email %></p>
@@ -19,59 +19,7 @@
   <div class="form-container">
     <h2 class="container-title">Bem vindo ao painel de controle!</h2>
     <!-- Formulário de Projetos -->
-    <div id="form-projetos" class="form-section" data-hide-target="formProjetos" style="display: none;">
-      <h3><%= @projeto.persisted? ? "Editar Projeto" : "Adicionar Novo Projeto" %></h3>
-
-      <!--Formulario para inserir valores-->
-      <%= render 'shared/form' %>
-      <!--Partial criada para chamar mensagens de erro no formulário-->
-      <div class="error-container">
-        <% unless @projeto.errors.any? %>
-          <h4>Notificações do sistema!</h4>
-        <% end %>
-        <%= render "shared/form_errors_messages"%>
-      </div>
-    </div>
-    
-    <div id="TabelaProjetos" data-hide-target="tabela">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Linguagem</th>
-            <th>Descrição</th>
-            <th>Link</th>
-            <th>Data</th>
-            <th>Alterar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% if @projetos.present? %>
-            <% @projetos.each do |projeto| %>
-              <tr>
-                <td><%= projeto[:id] %></td>
-                <td><%= projeto[:language].truncate(25) %></td>
-                <td><%= projeto[:description].truncate(30) %></td>
-                <td><%= projeto[:image_url].truncate(20) %></td>
-                <td><%= I18n.l(projeto[:date_p], format: :short) %></td>
-                <td>
-                  <%= link_to "Editar", admin_dashboard_index_path(project_id: projeto.id), class: "btn btn-edit-data" %>
-                  <%= link_to "Excluir", admin_dashboard_path(projeto.id),
-                              data: {turbo_method: :delete,
-                                     turbo_confirm: "Tem certeza que deseja excluir #{projeto[:language]} ?"},
-                              class: "btn btn-danger" %>
-                </td>
-              </tr>
-            <% end %>
-          <% else %>
-            <tr>
-              <td>
-                <%= "Erro ao buscar dados ou Banco de dados vazio" if @projetos.blank? %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+    <%= render 'shared/form' %>
+    <%= render 'shared/formf' %>
   </div>
 </section>
