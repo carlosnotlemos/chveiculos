@@ -2,6 +2,8 @@ class Admin::DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @tab = params[:tab] ||= "projetos"
+
     @projeto = params[:project_id] ? Project.find(params[:project_id]) : Project.new  # Se project_id estiver presente, carrega o projeto para editar.
     @formacao = params[:academic_id] ? Academic.find(params[:academic_id]) : Academic.new # Se academic_id estiver presente, carrega o projeto para editar.
 
@@ -55,20 +57,14 @@ class Admin::DashboardController < ApplicationController
 
   def destroy
     if params[:id].present?
-      if Project.exists?(params[:id])
+      if Project.exists?(params[:id]) && params[:format] == "projeto"
         @projeto = Project.find(params[:id])
         @projeto.destroy
-        respond_to do |format|
-          format.turbo_stream { render turbo_stream: turbo_stream.remove("project_#{params[:id]}") }
-        end
-      elsif Academic.exists?(params[:id])
+        redirect_to admin_dashboard_index_path
+      elsif Academic.exists?(params[:id]) && params[:format] == "formacao"
         @formacao = Academic.find(params[:id])
         @formacao.destroy
-        respond_to do |format|
-          format.turbo_stream { render turbo_stream: turbo_stream.remove("academic_#{params[:id]}") }
-        end
-      else
-        redirect_to admin_dashboard_index_path, alert: "Registro não encontrado."
+        redirect_to admin_dashboard_index_path
       end
     else
       redirect_to admin_dashboard_index_path, alert: "ID não enviado."

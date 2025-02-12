@@ -1,5 +1,0 @@
-<% if @projeto.present? %>
-  <%= turbo_stream.remove "project_#{@projeto.id}" %>
-<% elsif @formacao.present? %>
-  <%= turbo_stream.remove "academic_#{@formacao.id}" %>
-<% end %>

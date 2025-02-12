@@ -48,7 +48,7 @@
     <tbody>
       <% if @formacoes.present? %>
         <% @formacoes.each do |formacao| %>
-          <tr academic_<%= formacao.id %>>
+          <tr>
             <td><%= formacao[:id] %></td>
             <td><%= formacao[:title].truncate(25) %></td>
             <td><%= formacao[:description].truncate(30) %></td>
@@ -56,7 +56,7 @@
             <td> <%= formacao[:active]%> </td>
             <td>
               <%= link_to "Edtiar", admin_dashboard_index_path(academic_id: formacao.id), class: "btn btn-edit-data"%>
-              <%= link_to "Excluir", admin_dashboard_path(formacao),
+              <%= link_to "Excluir", admin_dashboard_path(formacao.id, "formacao"),
               data: {turbo_method: :delete,  turbo_confirm: "Tem certeza que deseja excluir #{formacao.title}"},
               class:"btn btn-edit-data" %>
             </td>

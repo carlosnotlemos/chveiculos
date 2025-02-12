@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["sidebarContainer", "formProjetos",
-     "formFormacoes", "tabela", "tabelaf"]
+     "formFormacoes", "tabela", "tabelaf"];
 
   connect() {
     //chama o controle de abas, se ñ tiver chama projetos
@@ -24,6 +24,9 @@ export default class extends Controller {
     //controle para bloquear tabela
     this.tabelaTarget.style.display = tab === "projetos" ? "block" : "none";
     this.tabelafTarget.style.display = tab === "formacoes" ? "block" : "none";
-
+    //Passar aba como url
+    const url = new URL(window.location);
+    url.searchParams.set("active_tab", tab);
+    window.history.replaceState({}, "", url);
   }
 }
