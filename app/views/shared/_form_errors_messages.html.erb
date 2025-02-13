@@ -1,13 +1,16 @@
-<% if @projeto.errors.any? %>
-  <% %>
-  <div class="alert">
-    <h4>Erros encontrados:</h4>
-    <ul>
-      <% @projeto.errors.messages.each do |_, alerts| %>
-        <% alerts.each do |msg| %>
-          <li><%= msg %></li>
+<div class="error-container">
+  <% unless object.errors.any? %>
+    <h4>Notificações do sistema!</h4>
+  <% else %>
+    <div class="alert">
+      <h4>Erros encontrados:</h4>
+      <ul>
+        <% object.errors.messages.each do |_, alerts| %>
+          <% alerts.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

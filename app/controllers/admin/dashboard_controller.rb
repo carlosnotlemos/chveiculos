@@ -2,8 +2,6 @@ class Admin::DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tab = params[:tab] ||= "projetos"
-
     @projeto = params[:project_id] ? Project.find(params[:project_id]) : Project.new  # Se project_id estiver presente, carrega o projeto para editar.
     @formacao = params[:academic_id] ? Academic.find(params[:academic_id]) : Academic.new # Se academic_id estiver presente, carrega o projeto para editar.
 
@@ -12,42 +10,46 @@ class Admin::DashboardController < ApplicationController
   end
 
   def create
-    if params[:project].present? && params[:project][:formP] == "projeto"
+    if params[:project].present? && params[:project][:form_p] == "projeto"
       @projeto = Project.new(projeto_params)
       if @projeto.save
-        redirect_to admin_dashboard_index_path, notice: "Projeto criado com sucesso!"
+        redirect_to admin_dashboard_index_path
       else
+        @formacao = Academic.new
         @formacoes = Academic.all
         @projetos = Project.all
         render :index, status: :unprocessable_entity
       end
-    elsif params[:academic].present? && params[:academic][:formF] == "formacao"
+    elsif params[:academic].present? && params[:academic][:form_f] == "formacao"
       @formacao = Academic.new(formacao_params)
       if @formacao.save
-        redirect_to admin_dashboard_index_path, notice: "Formação criada com sucesso!"
+        redirect_to admin_dashboard_index_path
       else
-        @formacoes = Academic.all
+        @projeto = Project.new
         @projetos = Project.all
+        @formacoes = Academic.all
         render :index, status: :unprocessable_entity
       end
     end
   end
 
   def update
-    if params[:project].present? && params[:project][:formP] == "projeto"
+    if params[:project].present? && params[:project][:form_p] == "projeto"
       @projeto = Project.find(params[:id])
       if @projeto.update(projeto_params)
-        redirect_to admin_dashboard_index_path, notice: "Projeto atualizado com sucesso!"
+        redirect_to admin_dashboard_index_path
       else
+        @formacao = Academic.new
         @formacoes = Academic.all
         @projetos = Project.all
         render :index, status: :unprocessable_entity
       end
-    elsif params[:academic].present? && params[:academic][:formF] == "formacao"
+    elsif params[:academic].present? && params[:academic][:form_f] == "formacao"
       @formacao = Academic.find(params[:id])
       if @formacao.update(formacao_params)
-        redirect_to admin_dashboard_index_path, notice: "Formação atualizada com sucesso!"
+        redirect_to admin_dashboard_index_path
       else
+        @projeto = Project.new
         @formacoes = Academic.all
         @projetos = Project.all
         render :index, status: :unprocessable_entity

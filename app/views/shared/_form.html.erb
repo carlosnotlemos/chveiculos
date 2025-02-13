@@ -6,7 +6,7 @@
   <%= form_with model: @projeto, url: @projeto.persisted? ? admin_dashboard_path(@projeto) : admin_dashboard_index_path, 
               method: @projeto.persisted? ? :patch : :post, local: true do |form| %>
 
-    <%= form.hidden_field :formP, value: "projeto" %>
+    <%= form.hidden_field :form_p, value: "projeto" %>
 
     <div class="form-unic">
       <div class="form-group">
@@ -35,12 +35,7 @@
   <% end %>
   
   <!--Partial criada para chamar mensagens de erro no formulário-->
-  <div class="error-container">
-    <% unless @projeto.errors.any? %>
-      <h4>Notificações do sistema!</h4>
-    <% end %>
-    <%= render "shared/form_errors_messages"%>
-  </div>
+  <%= render "shared/form_errors_messages", object: @projeto%>
 </div>
 
 <div id="TabelaProjetos" data-hide-target="tabela">

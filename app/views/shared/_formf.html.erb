@@ -6,7 +6,7 @@
     <%= form_with model: @formacao, url: @formacao.persisted? ? admin_dashboard_path(@formacao) : admin_dashboard_index_path, 
         method: @formacao.persisted? ? :patch : :post, local: true do |form| %>
     
-    <%= form.hidden_field :formF, value: "formacao" %>
+    <%= form.hidden_field :form_f, value: "formacao" %>
     <div class="form-unic">
         <div class="form-group">
           <%= form.label :title, "Formação: " %>
@@ -31,6 +31,8 @@
         <%= link_to "Teste", admin_dashboard_index_path , class:"btn btn-form"%>
     </div>
   <% end %>
+
+  <%= render "shared/form_errors_messages", object: @formacao%>
 </div>
 
 <div id="TabelaFormacoes" data-hide-target="tabelaf">

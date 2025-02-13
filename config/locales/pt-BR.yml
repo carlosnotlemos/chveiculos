@@ -5,13 +5,21 @@ pt-BR:
         project:
           attributes:
             language:
-              blank: "Linguagem não pode ficar em branco"
+              blank: Linguagem não pode ficar em branco
             description:
-              blank: "Descrição não pode ficar em branco"
+              blank: Descrição não pode ficar em branco
             image_url:
-              blank: "Link não pode ficar em branco"
+              blank: Link não pode ficar em branco
             date_p:
-              blank: "Data não pode ficar em branco"
+              blank: Data não pode ficar em branco
+        academic:
+          attributes:
+            title:
+              blank: Titulo não pode ficar em branco
+            description:
+              blank: Descrição não pode ficar em branco
+            due_date:
+              blank: Data não pode ficar em branco
       messages:
         inclusion: "não está incluído na lista"
         invalid: "é inválido"
