@@ -1,16 +1,15 @@
 <section class="timeline">
     <h2 class="section-title">Minhas Formações e Cursos</h2>
     <div class="timeline-container">
-        <!--Block para iterar na array -->
-        <% @courses.each do |course| %>
+        <% @formacoes.each do |formacao| %>
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <h3><%= course[:title] %> </h3>
-                    <p> <%= course[:platform] %> - <%= course[:date] %> </p>
-                    <%= content_tag(:p, course[:extra]) if course[:extra] %> 
+                    <h3><%= formacao.title %> </h3>
+                    <p>Instituição: <%= formacao.description %> - 
+                    <%= "#{formacao.active? ? 'Concluído: ' : 'Previsão: ' } #{l(formacao.due_date, format: :short)}" %> </p>
                 </div>
             </div>
         <% end %>
     </div>
-</section>
+</section> 

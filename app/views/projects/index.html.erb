@@ -1,16 +1,16 @@
 <section class="cardview">
     <h2 class="cardview-title">Meus Projetos</h2>
     <div class="cardview-container">
-        <div class="cardview-item"> <!--Salvar como binario e codificar com base64-->
-            <%= link_to root_path do %><!--Integração com banco de dados-->
-                <div class="card-image"> <%= image_tag "testecard.png", alt: "Imagem do projeto de portfólio"%> </div>
-                <div class="cardview-content">
-                    <p>ruby on rails</p>
-                    <h4>projeto portifolio feito em ruby on rails, ruby, html, css e utilizando 
-                        imagem docker
-                    </h4>
-                </div>
-            <% end %>
-        </div>
+        <% @projetos.each do |projeto| %>
+            <div class="cardview-item">
+                <%= link_to "https://github.com/carlosnotlemos" do %>
+                    <div class="card-image"> <%= image_tag "#{projeto.image_url}", alt: "Imagem do projeto de portfólio"%> </div>
+                    <div class="cardview-content">
+                        <%= content_tag(:p, projeto.language)%>
+                        <%= content_tag(:h4, projeto.description)%>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
     </div>
 </section>

@@ -1,0 +1,79 @@
+/* Estilos para o formulário de login */
+h2 {
+    font-size: 24px;
+    color: #ea804c;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Container do formulário */
+  form {
+    margin: 3rem auto;
+    background-color: #684f47;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Estilo dos campos de entrada */
+  .field {
+    margin-bottom: 15px;
+  }
+  
+  .field label {
+    font-size: 14px;
+    color: white;
+  }
+  
+  .field input[type="email"], 
+  .field input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .field input[type="email"]:focus,
+  .field input[type="password"]:focus {
+    border-color: #ea804c;
+    outline: none;
+  }
+  
+  /* Estilo do botão */
+  .actions .btn-submit {
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Estilo da opção de 'lembrar-me' */
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+  
+  .remember-me label {
+    margin-left: 8px;
+  }
+  
+  /* Links de navegação */
+  .devise-links {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .teste{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 0 80vh;
+  }
+  
