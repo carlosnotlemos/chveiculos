@@ -76,4 +76,19 @@
   .login-link a{
     font-size: 0.8rem;
   }
+
+  .btn-disable{
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    color: #fff1c1; /* Cor clara para o texto do botão */
+    background-color: #ea804c; /* Cor laranja suave para os botões */
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-disable:hover {
+    background-color: gray;
+    color: lightgray;
+  }
   
