@@ -21,7 +21,7 @@ linguagem incrível, com um framework excelente! Ruby on Rails.
 
 1. Clone este repositório:
    ```sh
-   git clone https://github.com/carlosnotlemos/](https://github.com/carlosnotlemos/chveiculos.git
+   git clone https://github.com/carlosnotlemos/chveiculos.git
    ```
 2. Entre no diretório do projeto:
    ```sh
@@ -31,15 +31,11 @@ linguagem incrível, com um framework excelente! Ruby on Rails.
    ```sh
    bundle install
    ```
-4. Configure o banco de dados:
-   ```sh
-   rails db:setup
-   ```
-5. Inicie o servidor:
+4. Inicie o servidor:
    ```sh
    rails db:migrate
    ```
-6. Acesse no navegador:
+5. Acesse no navegador:
    ```
    http://localhost:3000
    ```
