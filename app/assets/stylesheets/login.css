@@ -1,13 +1,13 @@
 /* Estilos para o formulário de login */
-h2 {
+.login-container h2 {
     font-size: 24px;
-    color: #ea804c;
+    color: #fff1c1;
     text-align: center;
     margin-bottom: 20px;
   }
   
   /* Container do formulário */
-  form {
+  .login-container {
     margin: 3rem auto;
     background-color: #684f47;
     padding: 30px;
@@ -65,15 +65,15 @@ h2 {
   }
   
   /* Links de navegação */
-  .devise-links {
+  .login-link{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     text-align: center;
     margin-top: 15px;
   }
 
-  .teste{
-    display: flex;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin: 0 80vh;
+  .login-link a{
+    font-size: 0.8rem;
   }
   

@@ -58,7 +58,7 @@
                 <td><%= projeto[:language].truncate(25) %></td>
                 <td><%= projeto[:description].truncate(30) %></td>
                 <td><%= projeto[:image_url].truncate(20) %></td>
-                <td><%= I18n.l(projeto[:date_p], format: :short) %></td>
+                <td><%= l(projeto[:date_p], format: :short) %></td>
                 <td>
                   <%= link_to "Editar", admin_dashboard_index_path(project_id: projeto.id), class: "btn btn-edit-data" %>
                   <%= link_to "Excluir", admin_dashboard_path(projeto.id, "projeto"), 

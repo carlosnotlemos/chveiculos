@@ -54,7 +54,7 @@
             <td><%= formacao[:id] %></td>
             <td><%= formacao[:title].truncate(25) %></td>
             <td><%= formacao[:description].truncate(30) %></td>
-            <td><%= formacao[:due_date]%></td>
+            <td><%= l(formacao[:due_date], format: :short)%></td>
             <td> <%= formacao[:active]%> </td>
             <td>
               <%= link_to "Edtiar", admin_dashboard_index_path(academic_id: formacao.id), class: "btn btn-edit-data"%>

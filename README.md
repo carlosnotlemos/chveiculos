@@ -35,11 +35,15 @@ linguagem incrível, com um framework excelente! Ruby on Rails.
    ```sh
    rails db:migrate
    ```
-5. Acesse no navegador:
+5. Crie um usuário:
+   ```
+   rails c
+   User.create(email: "admin@admin.com", password: "lkjhgfdsa", password_confirmation: "lkjhgfdsa")
+   ```
+6. Acesse no navegador e entre com suas credenciais:
    ```
    http://localhost:3000
    ```
-
 ## ✨ Funcionalidades
 
 - Apresentação de projetos
